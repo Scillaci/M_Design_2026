@@ -1,20 +1,26 @@
 [
   {
-    "slug": "Masked Singer",
+    "slug": "masked-singer",
     "title": "Masked Singer",
-    "thumbnail": "/images/reel-thumb.jpg",
+    "thumbnail": "/images/Reel.jpg",
     "videos": ["https://vimeo.com/123456789"]
   },
   {
-    "slug": "Follow the Steps",
+    "slug": "follow-the-steps",
     "title": "Follow the Steps",
     "thumbnail": "/images/Follow_the_Steps.jpg",
     "videos": ["https://vimeo.com/226102922"]
   },
   {
-    "slug": "Megablockbuster",
+    "slug": "megablockbuster",
     "title": "Megablockbuster",
     "thumbnail": "/images/Megablockbuster.jpg",
     "videos": ["https://vimeo.com/31299591"]
+  },
+  {
+    "slug": "die-besten-filme-aller-zeiten",
+    "title": "Die besten Filme aller Zeiten",
+    "thumbnail": "/images/BFAZ.jpg",
+    "videos": ["https://vimeo.com/225843183"]
   }
 ]

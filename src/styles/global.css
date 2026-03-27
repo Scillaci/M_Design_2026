@@ -1,0 +1,16 @@
+@charset "UTF-8";
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,600');
+
+
+html {
+    scrollbar-gutter: stable;
+}
+
+a, img, iframe {
+	outline: none;
+	border: none;
+}
+
+body {
+	background-color: #141b1e;
+}

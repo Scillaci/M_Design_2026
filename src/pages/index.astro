@@ -11,6 +11,7 @@ import VideoCard2 from '../components/video-card_2.astro';
 
   <div class="projects-grid">
     {projects.map(project => (
+	  <h2><a href={`/projects/${project.slug}`}>{project.title}</a></h2>
       <VideoCard2 project={project} />
     ))}
   </div>
