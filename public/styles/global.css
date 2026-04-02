@@ -18,8 +18,9 @@
 /* Fontsizes */
     --Fontsize-h1: 32px;
     --Fontsize-h2: 18px;
+    --Fontsize-h4: 16px;
     --Fontsize-small-1: 14px;
-    --Fontsize-small-2: 12px;
+    --Fontsize-small-2: 14px;
 }
 
 @media (min-width: 768px) {
@@ -32,6 +33,7 @@
     /* Fontsizes */
         --Fontsize-h1: 40px;
         --Fontsize-h2: 21px;
+        --Fontsize-h4: 18px;
     }
 }
 
@@ -45,7 +47,8 @@
     /* Fontsizes */
         --Fontsize-h1: 48px;
         --Fontsize-h2: 24px;
-        --Fontsize-small-1: 16px;
+        --Fontsize-h4: 20px;
+        --Fontsize-small-1: 14px;
         --Fontsize-small-2: 14px;
     }
 }
@@ -139,7 +142,7 @@ p {
 
 
 header {
-    min-height: calc(var(--Fontsize-h1)*1);
+    min-height: calc(var(--Fontsize-h1)*1.33);
 }
 
 #logo_div {
@@ -195,7 +198,7 @@ body.scrolled #logo:hover {
     align-items: flex-start;
     width: calc(var(--Fontsize-h1)*0.75);
     height: calc(var(--Fontsize-h1)*0.75);
-    margin-top: calc(var(--Fontsize-h1)*0.15);
+    margin-top: calc(var(--Fontsize-h1)*0.1);
 }
 
 .back, .left, .right {
@@ -289,7 +292,7 @@ body.scrolled #logo:hover {
 
 .case {
     max-width: 50vw;
-    margin-top: calc(var(--Space-standard)*1.5);
+    margin-top: calc(var(--Space-standard)*1);
     margin-left: calc(var(--Fontsize-h1)*0.75);
     }
 
@@ -304,12 +307,16 @@ body.scrolled #logo:hover {
     align-items: flex-start;
     }
 
+.arrow_button h3 {
+    font-size: var(--Fontsize-small-1);
+    }
+
 .arrow_icon {
-    width: calc(var(--Fontsize-small-2)*0.75);
-    height: calc(var(--Fontsize-small-2)*0.75);
+    width: calc(var(--Fontsize-small-1)*0.75);
+    height: calc(var(--Fontsize-small-1)*0.75);
     opacity: 0.5;
     transform: rotate(0deg);
-    margin-top: calc(var(--Fontsize-small-2)*0.1);
+    margin-top: calc(var(--Fontsize-small-1)*0.1);
 
     transition: transform 0.3s, opacity 0.3s;
     }
@@ -354,11 +361,13 @@ body.scrolled #logo:hover {
 }
 
 .overview {
-  display: none;
+    display: none;
+    font-size: var(--Fontsize-small-1);
 }
 
 .overview_m {
-  display: block;
+    display: block;
+    font-size: var(--Fontsize-small-1);
 }
 
 @media (min-width: 768px) {
@@ -455,7 +464,7 @@ iframe {
 .thumbs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 0;
+  margin-top: calc(var(--Space-standard)*1);;
   margin-left: calc(var(--Fontsize-h1)*0.25);
   margin-right: calc(var(--Fontsize-h1)*0.25);
   gap: var(--Space-standard);
@@ -475,6 +484,7 @@ iframe {
     display: block;
     position: absolute;
     bottom: 0;
+    font-size: var(--Fontsize-h4);
     left: calc(var(--Space-standard)*1.5);
     padding-left: calc(var(--Space-standard) * 0.5);
     padding-right: calc(var(--Space-standard) * 0.5);
