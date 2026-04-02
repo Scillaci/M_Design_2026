@@ -1,0 +1,39 @@
+
+{
+    "slug": "wildones",
+    "title": "Wild Ones",
+    "thumbTitle": ["", ""],
+    "subtitle": "Red Bull TV",
+    
+    "client": "Red Bull TV",
+    "year": "2015",
+    "tags": [
+      "formatdesign",
+      ""
+    ],
+
+    "overview": [
+      "",
+      ""
+    ],
+    
+    "role": [
+      "edit",
+      "animation" 
+    ],
+    "collaborators": [
+      { "title": "art direction", "name": "Konrad Wielandt" },
+      { "title": "", "name": "" }
+    ],
+
+    "poster":
+      "/img/wildones/wo.jpg",
+    "thumbs": [
+      "/img/wildones/wo1.jpg", 
+      "/img/wildones/wo2.jpg", 
+      "/img/wildones/wo3.jpg", 
+      "/img/wildones/wo4.jpg"],
+    "videos": ["225824025"]
+  }
+
+  

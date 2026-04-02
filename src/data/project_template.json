@@ -1,0 +1,41 @@
+
+  {
+    "slug": "",
+    "title": "",
+    "thumbTitle": ["", ""],
+    "subtitle": "",
+
+    "client": "",
+    "year": "",
+    "tags": [
+      "formatdesign",
+      ""
+    ],
+
+    "overview": [
+      "",
+      ""
+    ],
+
+    "role": [
+      "concept", 
+      "projection mapping", 
+      "animation", 
+      "edit"
+    ],
+    "collaborators": [
+      { "title": "", "name": "" },
+      { "title": "", "name": "" }
+    ],
+
+    "poster":
+      "/img/.../....jpg",
+    "thumbs": [
+      "/img/.../...1.jpg", 
+      "/img/.../...2.jpg", 
+      "/img/.../...3.jpg", 
+      "/img/.../...4.jpg"],
+    "videos": ["123456789"]
+  }
+
+

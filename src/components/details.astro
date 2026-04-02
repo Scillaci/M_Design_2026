@@ -1,5 +1,5 @@
 ---
-import type { Project } from '../types/project';
+import type { Project } from '../utils/types';
 
 const { project, detailsId } = Astro.props as {
   project: Project;
@@ -18,34 +18,34 @@ const rows = [
   { label: "year", value: project.year }
 ].filter((row) => row.value);
 ---
-<!-- Dies ist ein HTML-Kommentar 
+
 <div class="case">
 
   {project.overview?.map((text) => (
     <p class="overview">{text}</p>
   ))}
 
-
-
-
   <div class="details">
-    <div class="arrow_icon">
-      <a
-        href="#" class="js-toggle" title="Details"
-        data-toggle={`this .arrow, #${id}`}>
-        <img class="arrow" src="/icon/arrow_icon.svg" alt="arrow" />
-        
-      </a>
-    </div>
 
-    <h3>Details</h3>
+     <button
+        class="js-toggle" title="Details"
+        data-toggle={`this .arrow_icon, #${id}`}> 
 
+        <div class="arrow_button">
+          
+
+            <div class="arrow_icon">
+              <img src="/icon/arrow_icon.svg" alt="arrow" />
+            </div>
+
+            <h3>Details</h3>
+
+        </div>
+
+      </button>
   </div>
 
-
-
-
-    <div id={id} class="details_hidden">
+  <div id={id} class="details_hidden">
       <div class="details_inner">
 
         {project.overview?.map((text) => (
@@ -59,11 +59,7 @@ const rows = [
           </>
         ))}
       </div>
-    </div>
-
-
-
+  </div>
 
 </div>
 
--->

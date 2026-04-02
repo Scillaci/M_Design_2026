@@ -1,0 +1,38 @@
+  
+  {
+    "slug": "die-besten-filme-aller-zeiten",
+    "title": "Die besten Filme aller Zeiten",
+    "thumbTitle": ["Die besten Filme", "aller Zeiten"],
+    "subtitle": "Kabel Eins",
+
+    "client": "Kabel Eins",
+    "year": "2015",
+    "tags": [
+      "station branding",
+      ""
+    ],
+
+    "overview": [
+      "",
+      ""
+    ],
+    
+    "role": [
+      "concept",
+      "3D animation" 
+    ],
+    "collaborators": [
+      { "title": "direction", "name": "Konrad Wielandt" },
+      { "title": "", "name": "" }
+    ],
+
+    "poster":
+      "/img/bfaz15/bfaz15.jpg",
+    "thumbs": [
+      "/img/bfaz15/bfaz15_1.jpg", 
+      "/img/bfaz15/bfaz15_2.jpg", 
+      "/img/bfaz15/bfaz15_3.jpg", 
+      "/img/bfaz15/bfaz15_4.jpg"],
+    "videos": ["225843183"]
+  }
+

@@ -68,15 +68,24 @@ a:hover {
 	color: var(--M-blue);
 }
 
-@media (min-width: 1024px) {
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
 
+@media (hover: hover) and (pointer: fine) {
     html {
-        scrollbar-gutter: stable;
+    scrollbar-gutter: stable;
     }
 
     body {
         margin: var(--Space-standard);
-}
+    }
 }
 
 
@@ -109,6 +118,7 @@ h2 {
 h3 {
 	font-size: var(--Fontsize-small-2);
     margin-bottom: var(--Space-standard);
+    margin-left: calc(var(--Space-standard)*0.25);
 }
 
 h4 {
@@ -129,7 +139,7 @@ p {
 
 
 header {
-    min-height: calc(var(--Fontsize-h1)*2);
+    min-height: calc(var(--Fontsize-h1)*1);
 }
 
 #logo_div {
@@ -167,15 +177,25 @@ body.scrolled #logo:hover {
 
 .title {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
+    min-height: calc(var(--Fontsize-h1)*3);
     margin-bottom: var(--Space-standard);
+}
+
+.title-line-1 {
+    display: flex;
+}
+
+.main-title {
+    margin-left: calc(var(--Fontsize-h1)*0.5);
 }
 
 .back_icon {
     display: flex;
+    align-items: flex-start;
     width: calc(var(--Fontsize-h1)*0.75);
     height: calc(var(--Fontsize-h1)*0.75);
-    margin-top: calc(var(--Fontsize-h1)*0.133);
+    margin-top: calc(var(--Fontsize-h1)*0.15);
 }
 
 .back, .left, .right {
@@ -188,16 +208,47 @@ body.scrolled #logo:hover {
     transition: opacity 0.3s;
 }
 
+.left, .right {
+    opacity: 0.33;
+}
+
 .right {
     transform: rotate(0deg);
 }
 
-.back:hover, .left:hover, .right:hover  {
+.back:hover  {
     opacity: 1;
 }
 
-.line1 {
-    display: flex;
+.left:hover, .right:hover  {
+    opacity: 0.66;
+}
+
+.button-left, .button-right {
+  position: absolute;
+  width: calc(var(--Fontsize-h1)*1);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-left {
+  left: calc(var(--Fontsize-h1)*0.33);
+}
+
+.button-right {
+  right: calc(var(--Fontsize-h1)*0.33);
+}
+
+@media (min-width: 1024px) {
+
+.main-title {
+    margin-left: calc(var(--Fontsize-h1)*0.75);
+}
 }
 
 
@@ -215,6 +266,10 @@ body.scrolled #logo:hover {
     display: grid;
     grid-template-columns: 1fr;
     align-items: start;
+}
+
+.main {
+    position: relative;
 }
 
 @media (min-width: 1024px) {
@@ -235,55 +290,46 @@ body.scrolled #logo:hover {
 .case {
     max-width: 50vw;
     margin-top: calc(var(--Space-standard)*1.5);
-    margin-left: 24px;
+    margin-left: calc(var(--Fontsize-h1)*0.75);
     }
 
 .details {
     display: flex;
     align-items: flex-start;
-    margin-bottom: var(--Space-standard);
+    margin-top: calc(var(--Space-standard)*1);
 }
 
-.arrow_icon {
+.arrow_button {
     display: flex;
+    align-items: flex-start;
+    }
+
+.arrow_icon {
     width: calc(var(--Fontsize-small-2)*0.75);
     height: calc(var(--Fontsize-small-2)*0.75);
-    margin-top: calc(var(--Fontsize-small-2)*0.09);
+    opacity: 0.5;
+    transform: rotate(0deg);
+    margin-top: calc(var(--Fontsize-small-2)*0.1);
 
-    background-color: #1584D4;
+    transition: transform 0.3s, opacity 0.3s;
     }
 
-.arrow {
-    display:block;
+.arrow_icon img {
+    display: block;
     width: 100%;
     height: 100%;
-    opacity: 0.5;
-
-    transition: opacity 0.3s, transform 0.3s;
     }
 
-.arrow.active {
+.arrow_icon.active {
     transform: rotate(90deg);
-    }    
-/*
-.details a:hover .arrow,
-.details a:hover h3 {
+    }   
+
+.details button:hover .arrow_icon,
+.details button:hover h3 {
     opacity: 1;
     color: var(--M-blue);
 }
-*/
-/*
-.details a {
-    display: inline-flex;
-    margin-top: calc(var(--Space-standard)/2);
-}
-*/
 
-/*
-.details h3 {
-    margin-left: calc(var(--Fontsize-small-2)*0.36);
-}
-*/
 .details_hidden {
     margin-left: calc(var(--Fontsize-small-2)*1.1);
     display: grid;
@@ -305,15 +351,6 @@ body.scrolled #logo:hover {
 .details_hidden.active {
     grid-template-rows: 1fr;
     opacity: 1;
-    transform: translateY(0);
-}
-/*
-.details-slide {
-  display: none;
-}
-
-.details-slide.is-active {
-  display: block;
 }
 
 .overview {
@@ -323,12 +360,11 @@ body.scrolled #logo:hover {
 .overview_m {
   display: block;
 }
-*/
+
 @media (min-width: 768px) {
 
     .case {
         max-width: 384px;
-        margin-left: 30px;
     }
 }
 
@@ -336,11 +372,15 @@ body.scrolled #logo:hover {
 
     .case {
         margin-top: 0;
-        margin-left: 18px;
+        margin-left: var(--Space-standard);
         position: sticky;
-        top: 18px;
+        top: var(--Space-standard);
     }
-/*
+
+    .details {
+    margin-top: calc(var(--Space-standard)*1.5);
+}
+
     .overview {
         display: block;
 }
@@ -348,7 +388,6 @@ body.scrolled #logo:hover {
     .overview_m {
         display: none;
 }
-*/
 }
 
 
@@ -372,11 +411,11 @@ iframe {
     position: relative;
 }
 
-.slide {
+.slide, .title-slide, .details-slide {
   display: none;
 }
 
-.slide.is-active {
+.slide.is-active, .title-slide.is-active, .details-slide.is-active {
   display: block;
 }
 
@@ -416,9 +455,9 @@ iframe {
 .thumbs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: var(--Space-standard);
-  margin-left: calc(var(--Fontsize-h1)*0.75);
-  margin-right: calc(var(--Fontsize-h1)*0.75);
+  margin-top: 0;
+  margin-left: calc(var(--Fontsize-h1)*0.25);
+  margin-right: calc(var(--Fontsize-h1)*0.25);
   gap: var(--Space-standard);
 }
 
@@ -428,11 +467,38 @@ iframe {
   display: block;
 }
 
+.project-item {
+  position: relative;
+}
+
+.thumb-title {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--Space-standard)*1.5);
+    padding-left: calc(var(--Space-standard) * 0.5);
+    padding-right: calc(var(--Space-standard) * 0.5);
+
+    background-color: var(--Background);
+}
+
+.project-item:hover h2 {
+    color: var(--M-blue);
+}
+
+@media (min-width: 768px) {
+
+.thumbs {
+  margin-left: calc(var(--Fontsize-h1)*0.5);
+  margin-right: calc(var(--Fontsize-h1)*0.5);
+}
+}
+
 @media (min-width: 1024px) {
 
 .thumbs {
   margin-top: calc(var(--Fontsize-h1)*0.75);
+  margin-left: calc(var(--Fontsize-h1)*0.75);
+  margin-right: calc(var(--Fontsize-h1)*0.75);
 }
 }
-
-

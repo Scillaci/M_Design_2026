@@ -1,0 +1,41 @@
+
+{
+    "slug": "follow-the-steps",
+    "title": "Follow the Steps",
+    "thumbTitle": ["", ""],
+    "subtitle": "Red Bull TV",
+
+    "client": "Red Bull TV",
+    "year": "2016",
+    "tags": [
+      "formatdesign",
+      ""
+    ],
+
+    "overview": [
+      "Opening for a Red Bull TV show featuring projection mapping on live performers.",
+      "Visual patterns were projected directly onto the dancers, enhanced by particle animations designed to follow and amplify their movement."
+    ],
+    
+    "role": [
+      "concept", 
+      "projection mapping", 
+      "animation", 
+      "edit"
+    ],
+    "collaborators": [
+      { "title": "direction", "name": "Konrad Wielandt" },
+      { "title": "", "name": "" }
+    ],
+    
+    "poster":
+      "/img/steps/steps.jpg",
+    "thumbs": [
+      "/img/steps/steps1.jpg", 
+      "/img/steps/steps2.jpg", 
+      "/img/steps/steps3.jpg", 
+      "/img/steps/steps4.jpg"
+    ],
+    "videos": ["226102922"]
+  }
+

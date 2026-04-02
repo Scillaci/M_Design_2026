@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/base.astro';
-import projects from '../data/project_list.json';
 import Main from '../components/main.astro';
 
-const featuredProjects = projects.filter((project) => project.featured);
+import { getProjects } from '../utils/getProjects';
+
+const { projects, featuredProjects } = getProjects();
+
 const currentIndex = 0;
 const featuredProject = featuredProjects[currentIndex];
 ---

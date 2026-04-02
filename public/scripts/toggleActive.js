@@ -1,7 +1,6 @@
 document.querySelectorAll(".js-toggle").forEach(trigger => {
   trigger.addEventListener("click", (e) => {
-    e.preventDefault();
-
+    
     const selectors = trigger.dataset.toggle;
     if (!selectors) return;
 

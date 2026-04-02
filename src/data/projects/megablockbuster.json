@@ -1,0 +1,37 @@
+
+{
+    "slug": "megablockbuster",
+    "title": "Megablockbuster",
+    "thumbTitle": ["", ""],
+    "subtitle": "ProSieben",
+
+    "client": "ProSieben",
+    "year": "2010",
+    "tags": [
+      "station branding",
+      ""
+    ],
+
+    "overview": [
+      "",
+      ""
+    ],
+    
+    "role": [
+      "concept",
+      "3D animation" 
+    ],
+    "collaborators": [
+      { "title": "", "name": "" }
+    ],
+
+    "poster":
+      "/img/mbb/mbb.jpg",
+    "thumbs": [
+      "/img/mbb/mbb1.jpg", 
+      "/img/mbb/mbb2.jpg", 
+      "/img/mbb/mbb3.jpg", 
+      "/img/mbb/mbb4.jpg"],
+    "videos": ["31299591"]
+}
+

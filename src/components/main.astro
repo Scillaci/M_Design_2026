@@ -1,8 +1,8 @@
-  ---
+---
 import Vimeo from './vimeo.astro';
 import Details from './details.astro';
 import Tiles from '../components/tiles.astro';
-import type { Project } from '../types/project';
+import type { Project } from '../utils/types';
 
 interface Props {
   project: Project;
@@ -11,27 +11,43 @@ interface Props {
   currentIndex: number;  
 }
 
-const { project, projects, featuredProjects, currentIndex } = Astro.props as Props;
+const {projects, featuredProjects, currentIndex } = Astro.props as Props;
 ---
   
 <div class="title">
-  <a href="#" title="left" class="js-index"
-        data-step="-1">
-        <img class="left" src="/icon/arrow_icon.svg" alt="left" /></a>
+  <div class="main-title">
+    {featuredProjects.map((item, index) => (
+      <div class={`title-slide ${index === currentIndex ? 'is-active' : ''}`}>
+        <h1 class="featured-title">
+          {item.thumbTitle && item.thumbTitle.some(line => line.trim() !== "")
+            ? item.thumbTitle
+                .filter(line => line.trim() !== "")
+                .map((line, i, arr) => (
+                  <>
+                    {line}
+                    {i < arr.length - 1 && <br />}
+                  </>
+                ))
+            : item.title}
+        </h1>
 
-  <div>
-    <div class="line1"><h1 id="featured-title">{project.title}</h1>
-    <a href="#" title="right" class="js-index"
-        data-step="1">
-        <img class="right" src="/icon/arrow_icon.svg" alt="right" /></a>
-    </div>
-    <h2 id="featured-subtitle">{project.subtitle}</h2>
+        <h2 class="featured-subtitle">{item.subtitle}</h2>
+      </div>
+    ))}
   </div>
 </div>
 
 <div class="grid">
 
   <div class="main">
+
+    <button title="left" class="button-left js-index"
+        data-step="-1">
+        <img class="left" src="/icon/arrow_icon.svg" alt="left" /></button>
+
+    <button title="right" class="button-right js-index"
+        data-step="1">
+        <img class="right" src="/icon/arrow_icon.svg" alt="right" /></button>
 
     <div class="featured-vimeo">
       {featuredProjects.map((item, index) => (

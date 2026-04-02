@@ -6,10 +6,11 @@ export interface Collaborator {
 export interface Project {
   slug: string;
   title: string;
+  thumbTitle: string[];
   subtitle?: string;
-  featured?: boolean;
   client?: string;
   year?: string;
+  tags?: string[];
   poster?: string;
   thumbs?: string[];
   videos?: string[];

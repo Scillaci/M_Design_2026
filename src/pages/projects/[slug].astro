@@ -1,56 +1,58 @@
 ---
 import BaseLayout from '../../layouts/base.astro';
-import projects from '../../data/project_list.json';
 import Vimeo from '../../components/vimeo.astro';
 import Details from '../../components/details.astro';
 import Thumbs from '../../components/thumbs.astro';
+import { getProjects } from '../../utils/getProjects';
+import type { Project } from '../../utils/types';
 
 export async function getStaticPaths() {
-  return projects.map(project => ({
+  const { projects } = getProjects();
+
+  return projects.map((project) => ({
     params: { slug: project.slug },
+    props: { project }
   }));
 }
 
-const { slug } = Astro.params;
-const project = projects.find(p => p.slug === slug);
-
-if (!project) {
-  throw new Error(`Project not found: ${slug}`);
-}
+const { project } = Astro.props as { project: Project };
 ---
 
 <BaseLayout title={project.title}>
-
   <div class="page">
     <div class="title">
+      <div class="title-line-1">
+        <div class="back_icon">
+          <a href="/" title="back">
+            <img class="back" src="/icon/arrow_icon.svg" alt="back" />
+          </a>
+        </div>
 
-      <div class="back_icon">
-        <a href="/" title="back">
-          <img class="back" src="/icon/arrow_icon.svg" alt="back" />
-        </a>      
-      </div>
-      
-      <div>
-        <h1>{project.title}</h1>
-        <h2>{project.subtitle}</h2>
+        <div>
+          <h1>
+            {project.thumbTitle && project.thumbTitle.some((line) => line.trim() !== '')
+              ? project.thumbTitle
+                  .filter((line) => line.trim() !== '')
+                  .map((line, i, arr) => (
+                    <>
+                      {line}
+                      {i < arr.length - 1 && <br />}
+                    </>
+                  ))
+              : project.title}
+          </h1>
+          <h2>{project.subtitle}</h2>
+        </div>
       </div>
     </div>
 
     <div class="grid">
-
       <div class="main">
         <Vimeo project={project} />
       </div>
- 
-      <Details 
-        project={project} 
-        detailsId={`details-${project.slug}`} 
-      />
 
-      <Thumbs thumbs={project.thumbs} />
-
+      <Details project={project} detailsId={`details-${project.slug}`} />
+      <Thumbs thumbs={project.thumbs ?? []} />
     </div>
   </div>
-
 </BaseLayout>
-

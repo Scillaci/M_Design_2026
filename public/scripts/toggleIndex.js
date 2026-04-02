@@ -8,6 +8,7 @@ if (dataEl) {
   const subtitleEl = document.getElementById('featured-subtitle');
   const vimeoSlides = document.querySelectorAll('.slide');
   const detailsSlides = document.querySelectorAll('.details-slide');
+  const titleSlides = document.querySelectorAll('.title-slide');
 
   function updateIndex(step) {
     const length = featuredProjects.length;
@@ -29,6 +30,11 @@ if (dataEl) {
     if (detailsSlides.length) {
       detailsSlides[currentIndex].classList.remove('is-active');
       detailsSlides[nextIndex].classList.add('is-active');
+    }
+
+    if (titleSlides.length) {
+      titleSlides[currentIndex].classList.remove('is-active');
+      titleSlides[nextIndex].classList.add('is-active');
     }
 
     currentIndex = nextIndex;

@@ -1,5 +1,5 @@
 ---
-import type { Project } from '../types/project';
+import type { Project } from '../utils/types';
 
 interface Props {
   projects: Project[];
@@ -11,15 +11,22 @@ const { projects } = Astro.props as Props;
 <div class="thumbs">
   {projects.map((project) => (
     <article class="project-item">
-      <h2>
-        <a href={`/projects/${project.slug}`}>{project.title}</a>
-      </h2>
-
-      <img 
-        src={project.poster}
-        alt={project.title}
-        loading="lazy" 
-    />
+      <a class="thumb-link" href={`/projects/${project.slug}`}>
+        
+        <img 
+          src={project.poster}
+          alt={project.title}
+          loading="lazy" 
+        />
+     
+        <h2 class="thumb-title">
+          {project.thumbTitle && project.thumbTitle.some(line => line.trim() !== "") ? project.thumbTitle
+            .filter(line => line.trim() !== "")
+            .map((line, i, arr) => ( <> {line} {i < arr.length - 1 && <br />} </> ))
+          : project.title}
+        </h2>
+        
+      </a>
     </article>
   ))}
 </div>
