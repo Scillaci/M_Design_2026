@@ -5,28 +5,33 @@
     "thumbTitle": ["Die besten Filme", "aller Zeiten"],
     "subtitle": "Kabel Eins",
 
-    "client": "Kabel Eins",
-    "year": "2015",
     "category": [
-      "idents & labels",
-      ""
+      "idents & labels"
     ],
-
-    "overview": [
-      "Program label for Kabel eins, redesigned with a new visual concept.",
-      "Searchlights build the star-shaped logo above a city, with typography completes its outline and subtle sparkles follow their paths."
-    ],
-    
-    "role": [
+    "expertise": [
       "concept",
       "animation",
-      "3D",
+      "3d",
+      "compositing",
+      "editing"
+    ],
+
+    "role": [
+      "concept",
+      "3D animation",
       "compositing",
       "editing"
     ],
     "collaborators": [
-      { "title": "direction", "name": "Konrad Wielandt" },
-      { "title": "", "name": "" }
+      { "title": "direction", "name": "Konrad Wielandt" }
+    ],
+
+    "client": "Kabel Eins",
+    "year": "2015",
+
+    "overview": [
+      "Program label for Kabel eins, redesigned with a new visual concept.",
+      "Searchlights build the star-shaped logo above a city, with typography completes its outline and subtle sparkles follow their paths."
     ],
 
     "poster":

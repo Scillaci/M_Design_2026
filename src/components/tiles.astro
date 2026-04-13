@@ -16,7 +16,7 @@ const { projects } = Astro.props as Props;
     <article 
       class="project-item js-project"
       data-category={toFilterData(project.category)}
-      data-role={toFilterData(project.role)}
+      data-expertise={toFilterData(project.expertise)}
     >
       <a class="thumb-link" href={`/projects/${project.slug}`}>
         <img 

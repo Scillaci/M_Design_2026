@@ -3,24 +3,24 @@
   {
     "label": "category",
     "filter": [
-      "channel branding",
-      "format design",
-      "content graphics",
-      "idents & labels",
-      "event design",
-      "visual storytelling"
+      { "id": "channel branding", "display": "channel branding" },
+      { "id": "format design", "display": "format design" },
+      { "id": "content graphics", "display": "content graphics" },
+      { "id": "idents & labels", "display": "idents & labels" },
+      { "id": "event design", "display": "event design" },
+      { "id": "visual storytelling", "display": "visual storytelling" }
     ]
   },
 
   {
     "label": "expertise",
     "filter": [
-      "concept",
-      "design",
-      "animation",
-      "3D",
-      "compositing",
-      "editing"
+      { "id": "concept", "display": "concept" },
+      { "id": "design", "display": "design" },
+      { "id": "animation", "display": "animation" },
+      { "id": "3d", "display": "3D" },
+      { "id": "compositing", "display": "compositing" },
+      { "id": "editing", "display": "editing" }
     ]
   }
 ]

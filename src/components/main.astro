@@ -24,7 +24,7 @@ const alwaysFeaturedSlugs = new Set(alwaysFeaturedProjects.map((project) => proj
       class="js-featured-data"
       data-featured-slug={item.slug}
       data-category={toFilterData(item.category)}
-      data-role={toFilterData(item.role)}
+      data-expertise={toFilterData(item.expertise)}
       data-always-featured={alwaysFeaturedSlugs.has(item.slug) ? 'true' : 'false'}
     />
   ))}

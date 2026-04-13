@@ -5,18 +5,16 @@
     "thumbTitle": ["", ""],
     "subtitle": "Red Bull TV",
 
-    "client": "Red Bull TV",
-    "year": "2016",
     "category": [
-      "format design",
-      ""
+      "format design"
+    ],
+    "expertise": [
+      "concept",
+      "design",
+      "animation",
+      "editing"
     ],
 
-    "overview": [
-      "Opening for a Red Bull TV show using projection mapping directly on live performers.",
-      "The visuals were designed to fit their movement and extended with particle animations."
-    ],
-    
     "role": [
       "concept",
       "design",
@@ -25,8 +23,15 @@
       "editing"
     ],
     "collaborators": [
-      { "title": "direction", "name": "Konrad Wielandt" },
-      { "title": "", "name": "" }
+      { "title": "direction", "name": "Konrad Wielandt" }
+    ],
+
+    "client": "Red Bull TV",
+    "year": "2016",
+    
+    "overview": [
+      "Opening for a Red Bull TV show using projection mapping directly on live performers.",
+      "The visuals were designed to fit their movement and extended with particle animations."
     ],
     
     "poster":

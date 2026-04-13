@@ -1,3 +1,12 @@
+export interface FilterItem {
+  id: string;
+  display: string;
+}
+
+export interface FilterGroup {
+  label: string;
+  filter: FilterItem[];
+}
 
 export interface Collaborator {
   title: string;
@@ -12,6 +21,7 @@ export interface Project {
   client?: string;
   year?: string;
   category?: string[];
+  expertise: string[];
   headline?: string[];
   list?: string[];
   poster?: string;

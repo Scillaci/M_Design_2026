@@ -30,23 +30,23 @@ featuredDataElements.forEach((element) => {
 function getElementValues(element, key) {
   return (element.dataset[key] || '')
     .split(',')
-    .map((item) => item.trim().toLowerCase())
+    .map((item) => item.trim())
     .filter(Boolean);
 }
 
-function matchesFilters(element, activeCategoryFilters, activeRoleFilters) {
+function matchesFilters(element, activeCategoryFilters, activeExpertiseFilters) {
   const elementCategories = getElementValues(element, 'category');
-  const elementRoles = getElementValues(element, 'role');
+  const elementExpertise = getElementValues(element, 'expertise');
 
   const categoryMatch =
     activeCategoryFilters.length === 0 ||
     activeCategoryFilters.some((filter) => elementCategories.includes(filter));
 
-  const roleMatch =
-    activeRoleFilters.length === 0 ||
-    activeRoleFilters.some((filter) => elementRoles.includes(filter));
+  const expertiseMatch =
+    activeExpertiseFilters.length === 0 ||
+    activeExpertiseFilters.some((filter) => elementExpertise.includes(filter));
 
-  return categoryMatch && roleMatch;
+  return categoryMatch && expertiseMatch;
 }
 
 function getActiveFilters(group) {
@@ -62,7 +62,7 @@ function getActiveFilters(group) {
 function saveFilters() {
   const filterState = {
     category: getActiveFilters('category'),
-    role: getActiveFilters('role')
+    expertise: getActiveFilters('expertise')
   };
 
   sessionStorage.setItem(STORAGE_KEY, JSON.stringify(filterState));
@@ -81,7 +81,7 @@ function restoreFilters() {
   }
 
   const savedCategories = filterState.category || [];
-  const savedRoles = filterState.role || [];
+  const savedExpertise = filterState.expertise || [];
 
   filterButtons.forEach((button) => {
     const group = button.dataset.filterGroup;
@@ -89,21 +89,21 @@ function restoreFilters() {
 
     const isActive =
       (group === 'category' && savedCategories.includes(value)) ||
-      (group === 'role' && savedRoles.includes(value));
+      (group === 'expertise' && savedExpertise.includes(value));
 
     button.classList.toggle('active', isActive);
   });
 }
 
-function hasActiveFilters(activeCategoryFilters, activeRoleFilters) {
-  return activeCategoryFilters.length > 0 || activeRoleFilters.length > 0;
+function hasActiveFilters(activeCategoryFilters, activeExpertiseFilters) {
+  return activeCategoryFilters.length > 0 || activeExpertiseFilters.length > 0;
 }
 
-function getMatchedRegularFeaturedSlugs(activeCategoryFilters, activeRoleFilters) {
+function getMatchedRegularFeaturedSlugs(activeCategoryFilters, activeExpertiseFilters) {
   const matchedSlugs = [];
 
   featuredDataMap.forEach((dataElement, slug) => {
-    const matches = matchesFilters(dataElement, activeCategoryFilters, activeRoleFilters);
+    const matches = matchesFilters(dataElement, activeCategoryFilters, activeExpertiseFilters);
     const isAlwaysFeatured = dataElement.dataset.alwaysFeatured === 'true';
 
     if (matches && !isAlwaysFeatured) {
@@ -114,12 +114,12 @@ function getMatchedRegularFeaturedSlugs(activeCategoryFilters, activeRoleFilters
   return matchedSlugs;
 }
 
-function getFeaturedVisibility(slug, hasMatchedRegularFeatured, activeCategoryFilters, activeRoleFilters) {
+function getFeaturedVisibility(slug, hasMatchedRegularFeatured, activeCategoryFilters, activeExpertiseFilters) {
   const dataElement = featuredDataMap.get(slug);
   if (!dataElement) return false;
 
-  const filtersAreActive = hasActiveFilters(activeCategoryFilters, activeRoleFilters);
-  const matches = matchesFilters(dataElement, activeCategoryFilters, activeRoleFilters);
+  const filtersAreActive = hasActiveFilters(activeCategoryFilters, activeExpertiseFilters);
+  const matches = matchesFilters(dataElement, activeCategoryFilters, activeExpertiseFilters);
   const isAlwaysFeatured = dataElement.dataset.alwaysFeatured === 'true';
 
   if (!filtersAreActive) {
@@ -133,7 +133,7 @@ function getFeaturedVisibility(slug, hasMatchedRegularFeatured, activeCategoryFi
   return isAlwaysFeatured;
 }
 
-function updateFeaturedVisibility(hasMatchedRegularFeatured, activeCategoryFilters, activeRoleFilters) {
+function updateFeaturedVisibility(hasMatchedRegularFeatured, activeCategoryFilters, activeExpertiseFilters) {
   const visibleSlugs = [];
 
   featuredMap.forEach((elements, slug) => {
@@ -141,7 +141,7 @@ function updateFeaturedVisibility(hasMatchedRegularFeatured, activeCategoryFilte
       slug,
       hasMatchedRegularFeatured,
       activeCategoryFilters,
-      activeRoleFilters
+      activeExpertiseFilters
     );
 
     if (isVisible) {
@@ -230,16 +230,16 @@ function stepFeatured(step) {
 
 function updateFilters() {
   const activeCategoryFilters = getActiveFilters('category');
-  const activeRoleFilters = getActiveFilters('role');
+  const activeExpertiseFilters = getActiveFilters('expertise');
 
   projects.forEach((item) => {
-    const matches = matchesFilters(item, activeCategoryFilters, activeRoleFilters);
+    const matches = matchesFilters(item, activeCategoryFilters, activeExpertiseFilters);
     item.classList.toggle('is-hidden', !matches);
   });
 
   const matchedRegularFeaturedSlugs = getMatchedRegularFeaturedSlugs(
     activeCategoryFilters,
-    activeRoleFilters
+    activeExpertiseFilters
   );
 
   const hasMatchedRegularFeatured = matchedRegularFeaturedSlugs.length > 0;
@@ -247,7 +247,7 @@ function updateFilters() {
   const visibleFeaturedSlugs = updateFeaturedVisibility(
     hasMatchedRegularFeatured,
     activeCategoryFilters,
-    activeRoleFilters
+    activeExpertiseFilters
   );
 
   setVisibleFeaturedSlugs(visibleFeaturedSlugs);

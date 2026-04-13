@@ -54,9 +54,9 @@ const expertise = filter.find(group => group.label === "expertise");
             		<button class="js-toggle-filter"
         					type="button"
 							data-filter-group="category"
-          					data-filter-value={item.trim().toLowerCase()}
+          					data-filter-value={item.id}
 					>
-						{item}
+						{item.display}
 					</button>
         		</li>
         	))}
@@ -73,10 +73,10 @@ const expertise = filter.find(group => group.label === "expertise");
 					<li>
             			<button class="js-toggle-filter"
         						type="button"
-								data-filter-group="role"
-          						data-filter-value={item.trim().toLowerCase()}
+								data-filter-group="expertise"
+          						data-filter-value={item.id}
 		  				>
-							{item}
+							{item.display}
 						</button>
         			</li>
         		))}
