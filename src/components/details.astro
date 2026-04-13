@@ -1,12 +1,19 @@
 ---
 import type { Project } from '../utils/types';
 
-const { project, detailsId } = Astro.props as {
+const {
+  project,
+  blockId,
+  panelId
+} = Astro.props as {
   project: Project;
-  detailsId?: string;
+  blockId?: string;
+  panelId: string;
 };
 
-const id = detailsId ?? `details-${project.slug}`;
+const overview = (project.overview ?? []).filter((text) => text?.trim());
+const headline = (project.headline ?? []).filter((text) => text?.trim());
+const list = (project.list ?? []).filter((text) => text?.trim());
 
 const rows = [
   { label: "client", value: project.client },
@@ -17,49 +24,59 @@ const rows = [
   })),
   { label: "year", value: project.year }
 ].filter((row) => row.value);
+
+const arrowId = `${panelId}-arrow`;
 ---
 
-<div class="case">
-
-  {project.overview?.map((text) => (
+<div id={blockId} class="case">
+  <div class="case-overview case-overview-desktop">
+  {overview.map((text) => (
     <p class="overview">{text}</p>
   ))}
-
-  <div class="details">
-
-     <button
-        class="js-toggle" title="Details"
-        data-toggle={`this .arrow_icon, #${id}`}> 
-
-        <div class="arrow_button">
-          
-
-            <div class="arrow_icon">
-              <img src="/icon/arrow_icon.svg" alt="arrow" />
-            </div>
-
-            <h3>Details</h3>
-
-        </div>
-
-      </button>
-  </div>
-
-  <div id={id} class="details_hidden">
-      <div class="details_inner">
-
-        {project.overview?.map((text) => (
-          <p class="overview_m">{text}</p>
-        ))}
-
-        {rows.map((row) => (
-          <>
-            <h4>{row.label}</h4>
-            <p>{row.value}</p>
-          </>
-        ))}
-      </div>
-  </div>
-
 </div>
 
+  <div class="details-toggle">
+    <button
+      class="details-button js-toggle"
+      type="button"
+      title="Details"
+      aria-controls={panelId}
+      data-toggle={`#${arrowId}, #${panelId}`}
+    >
+      <span id={arrowId} class="details-arrow">
+        <img src="/icon/arrow_icon.svg" alt="" />
+      </span>
+
+      <h3 class="details-label">Details</h3>
+    </button>
+  </div>
+
+  <div id={panelId} class="details-panel">
+    <div class="details-panel-inner">
+      <div class="case-overview case-overview-mobile">
+        {overview.map((text) => (
+        <p class="overview">{text}</p>
+        ))}
+      </div>
+
+      {headline.map((text) => (
+      <h4 class="headline">{text}</h4>
+      ))}
+
+      <div class="list">
+        {list.map((text) => (
+        <p>{text}</p>
+        ))}
+      </div>
+
+      <div class="details-meta">
+        {rows.map((row) => (
+          <div class="details-row">
+            <h4>{row.label}</h4>
+            <p>{row.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

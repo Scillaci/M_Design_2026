@@ -8,14 +8,32 @@
     "client": "",
     "year": "2017",
 
-    "tags": [
+    "categories": [
       "",
       ""
     ],
 
-    "overview": [
-      "",
+    "alwaysFeatured": true,
+
+    "headline": [
+      "Projects in order of appeareance",
       ""
+    ],
+
+    "list": [
+      "Die besten Filme aller Zeiten",
+      "Wildones",
+      "Deutscher Zukunftspreis",
+      "Puls 8",
+      "Die Alm",
+      "Follow the Steps",
+      "Galileo X.Perience",
+      "Der Bayrische Filmpreis",
+      "It's Showtime",
+      "Ran",
+      "Echt Jetzt?",
+      "Film Film",
+      "Megablockbuster"
     ],
 
     "poster":

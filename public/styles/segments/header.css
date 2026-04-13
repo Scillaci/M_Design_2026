@@ -1,0 +1,33 @@
+
+header {
+    min-height: calc(var(--Fontsize-h1)*1.33);
+}
+
+#logo_div {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    z-index: 100;
+}
+
+#logo {
+    height: calc(var(--Fontsize-h1)*0.75);
+    margin-top: calc(var(--Space-standard) * 1.33);
+
+    transition: transform 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.1);
+}
+
+body.scrolled #logo {
+    transform: scale(0.6);
+    margin-top: 4px;
+}  
+
+body.scrolled #logo:hover {
+    transform: scale(0.66);
+}

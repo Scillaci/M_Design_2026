@@ -1,5 +1,8 @@
 ---
 import type { Project } from '../utils/types';
+import { toFilterData } from '../utils/filterData';
+import TitleLines from './titleLines.astro';
+import { getDisplayTitle } from '../utils/getDisplayTitle';
 
 interface Props {
   projects: Project[];
@@ -10,22 +13,22 @@ const { projects } = Astro.props as Props;
 
 <div class="thumbs">
   {projects.map((project) => (
-    <article class="project-item">
+    <article 
+      class="project-item js-project"
+      data-category={toFilterData(project.category)}
+      data-role={toFilterData(project.role)}
+    >
       <a class="thumb-link" href={`/projects/${project.slug}`}>
-        
         <img 
           src={project.poster}
           alt={project.title}
           loading="lazy" 
         />
-     
+
         <h2 class="thumb-title">
-          {project.thumbTitle && project.thumbTitle.some(line => line.trim() !== "") ? project.thumbTitle
-            .filter(line => line.trim() !== "")
-            .map((line, i, arr) => ( <> {line} {i < arr.length - 1 && <br />} </> ))
-          : project.title}
+          <TitleLines lines={getDisplayTitle(project)} />
         </h2>
-        
+
       </a>
     </article>
   ))}

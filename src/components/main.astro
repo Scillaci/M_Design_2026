@@ -1,74 +1,69 @@
 ---
-import Vimeo from './vimeo.astro';
-import Details from './details.astro';
+import FeaturedTitles from './featuredTitles.astro';
+import FeaturedMedia from './featuredMedia.astro';
+import FeaturedDetails from './featuredDetails.astro';
 import Tiles from '../components/tiles.astro';
+import Bottom from '../components/bottom.astro';
 import type { Project } from '../utils/types';
+import { toFilterData } from '../utils/filterData';
 
 interface Props {
-  project: Project;
   projects: Project[];
   featuredProjects: Project[];
+  alwaysFeaturedProjects: Project[];
   currentIndex: number;  
 }
 
-const {projects, featuredProjects, currentIndex } = Astro.props as Props;
+const {projects, featuredProjects, alwaysFeaturedProjects, currentIndex } = Astro.props as Props;
+const alwaysFeaturedSlugs = new Set(alwaysFeaturedProjects.map((project) => project.slug));
 ---
-  
-<div class="title">
-  <div class="main-title">
-    {featuredProjects.map((item, index) => (
-      <div class={`title-slide ${index === currentIndex ? 'is-active' : ''}`}>
-        <h1 class="featured-title">
-          {item.thumbTitle && item.thumbTitle.some(line => line.trim() !== "")
-            ? item.thumbTitle
-                .filter(line => line.trim() !== "")
-                .map((line, i, arr) => (
-                  <>
-                    {line}
-                    {i < arr.length - 1 && <br />}
-                  </>
-                ))
-            : item.title}
-        </h1>
 
-        <h2 class="featured-subtitle">{item.subtitle}</h2>
-      </div>
-    ))}
-  </div>
+<div id="featured-items-data" hidden>
+  {featuredProjects.map((item) => (
+    <div
+      class="js-featured-data"
+      data-featured-slug={item.slug}
+      data-category={toFilterData(item.category)}
+      data-role={toFilterData(item.role)}
+      data-always-featured={alwaysFeaturedSlugs.has(item.slug) ? 'true' : 'false'}
+    />
+  ))}
 </div>
 
-<div class="grid">
+<div id="featured-state" hidden></div>
 
+<FeaturedTitles 
+  featuredProjects={featuredProjects}
+  currentIndex={currentIndex}
+/>
+
+<div class="grid">
   <div class="main">
 
-    <button title="left" class="button-left js-index"
-        data-step="-1">
-        <img class="left" src="/icon/arrow_icon.svg" alt="left" /></button>
+    <FeaturedMedia
+      featuredProjects={featuredProjects}
+      currentIndex={currentIndex}
+    />
 
-    <button title="right" class="button-right js-index"
-        data-step="1">
-        <img class="right" src="/icon/arrow_icon.svg" alt="right" /></button>
+    <FeaturedDetails
+      featuredProjects={featuredProjects}
+      currentIndex={currentIndex}
+      containerId="details-unten"
+      variantClass="js-featured-details-bottom"
+      panelPrefix="details-unten-panel"
+    />
 
-    <div class="featured-vimeo">
-      {featuredProjects.map((item, index) => (
-        <div class={`slide ${index === currentIndex ? 'is-active' : ''}`}>
-          <Vimeo project={item} />
-        </div>
-      ))}
-    </div>
+    <Tiles projects={projects} />
+
+    <Bottom />
   </div>
 
-  <div class="featured-details">
-  {featuredProjects.map((item, index) => (
-    <div class={`details-slide ${index === currentIndex ? 'is-active' : ''}`}>
-      <Details 
-        project={item} 
-        detailsId={`details-${item.slug}`} 
-      />
-    </div>
-  ))}
-  </div>
-
-  <Tiles projects={projects} />
+  <FeaturedDetails
+      featuredProjects={featuredProjects}
+      currentIndex={currentIndex}
+      containerId="details-rechts"
+      variantClass="js-featured-details-right"
+      panelPrefix="details-rechts-panel"
+  />
 
 </div>

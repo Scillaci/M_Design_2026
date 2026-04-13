@@ -1,0 +1,34 @@
+---
+import Details from './details.astro';
+import type { Project } from '../utils/types';
+
+interface Props {
+  featuredProjects: Project[];
+  currentIndex: number;
+  containerId: string;
+  variantClass: string;
+  panelPrefix: string;
+}
+
+const {
+  featuredProjects,
+  currentIndex,
+  containerId,
+  variantClass,
+  panelPrefix
+} = Astro.props as Props;
+---
+
+<div id={containerId} class="featured-details">
+  {featuredProjects.map((item, index) => (
+    <div
+      class={`details-slide js-featured-project ${variantClass} ${index === currentIndex ? 'is-active' : ''}`}
+      data-featured-slug={item.slug}
+    >
+      <Details
+        project={item}
+        panelId={`${panelPrefix}-${item.slug}`}
+      />
+    </div>
+  ))}
+</div>

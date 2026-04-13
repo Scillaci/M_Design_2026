@@ -1,0 +1,41 @@
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+	background-color: var(--Background);
+    margin: 0;
+}
+
+a, img, iframe {
+	outline: none;
+	border: none;
+}
+
+a:hover {
+	color: var(--M-color);
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    html, .navigation, .navigation-menu {
+        scrollbar-gutter: stable;
+    }
+
+    body {
+        margin-left: var(--Space-standard);
+        margin-right: var(--Space-standard);
+    }
+
+}
+

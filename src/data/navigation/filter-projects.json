@@ -1,0 +1,26 @@
+
+[
+  {
+    "label": "category",
+    "filter": [
+      "channel branding",
+      "format design",
+      "content graphics",
+      "idents & labels",
+      "event design",
+      "visual storytelling"
+    ]
+  },
+
+  {
+    "label": "expertise",
+    "filter": [
+      "concept",
+      "design",
+      "animation",
+      "3D",
+      "compositing",
+      "editing"
+    ]
+  }
+]

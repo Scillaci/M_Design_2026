@@ -1,0 +1,118 @@
+---
+import nav from '../data/navigation/navigation.json';
+import navIcons from '../data/navigation/navigation-icons.json';
+
+import filter from '../data/navigation/filter-projects.json';
+
+const category = filter.find(group => group.label === "category");
+const expertise = filter.find(group => group.label === "expertise");
+---
+
+<div class="navigation">
+	<div class="menu-scroll">
+
+		<button
+    		class="nav-button js-toggle"
+    		type="button"
+    		aria-label="Navigation öffnen"
+    		data-toggle=".nav-button, .line1, .line2, .line3, .navigation-menu">
+    		<span class="line1"></span>
+    		<span class="line2"></span>
+    		<span class="line3"></span>
+			<div class="nav-bg"></div>
+  		</button>
+
+	</div>
+</div>
+
+<div id="nav" class="navigation-menu">
+	<div class="menu-scroll">
+
+		<div class="nav-top">
+
+			<ul>
+        		{nav.about.map((item) => (
+        		<li>
+            		<a href={item.href}>{item.label}</a>
+        		</li>
+        		))}
+    		</ul>
+
+		</div>
+
+		<div class="menu-line">
+			<div class="line"></div>
+		</div>
+
+		<div id="nav-category" class="nav-filter">
+
+			<h3 class="filter-label">{category?.label}</h3>
+
+			<ul >{category?.filter.map((item) => (
+        		
+				<li>
+            		<button class="js-toggle-filter"
+        					type="button"
+							data-filter-group="category"
+          					data-filter-value={item.trim().toLowerCase()}
+					>
+						{item}
+					</button>
+        		</li>
+        	))}
+    		</ul>
+
+		</div>
+
+		<div id="nav-expertise" class="nav-filter">
+
+				<h4 class="filter-label">{expertise?.label}</h4>
+
+				<ul >{expertise?.filter.map((item) => (
+        		
+					<li>
+            			<button class="js-toggle-filter"
+        						type="button"
+								data-filter-group="role"
+          						data-filter-value={item.trim().toLowerCase()}
+		  				>
+							{item}
+						</button>
+        			</li>
+        		))}
+    			</ul>
+
+		</div>
+
+		<div class="menu-line">
+			<div class="line"></div>
+		</div>
+
+		<div class="nav-bottom">
+
+			<ul>
+        		{nav.legal.map((item) => (
+        		<li>
+            		<a href={item.href}>{item.label}</a>
+        		</li>
+        		))}
+    		</ul>
+
+			<ul class="nav-icons">
+        		{navIcons.map((item) => (
+        		<li>
+            		<a href={item.href} title={item.label}>
+						<img src={item.icon} alt={item.label} />
+					</a>
+        		</li>
+        		))}
+    		</ul>
+
+		</div>
+
+	</div>
+</div>
+
+<!-- 
+
+-->

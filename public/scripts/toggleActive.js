@@ -9,7 +9,12 @@ document.querySelectorAll(".js-toggle").forEach(trigger => {
 
       let elements;
 
-      if (selector.startsWith("this ")) {
+      if (selector === "this") {
+        elements = [trigger];
+
+      } 
+      
+      else if (selector.startsWith("this ")) {
         const localSelector = selector.replace("this ", "");
         elements = trigger.querySelectorAll(localSelector);
         

@@ -1,0 +1,31 @@
+---
+import type { Project } from '../utils/types';
+import TitleLines from './titleLines.astro';
+import { getDisplayTitle } from '../utils/getDisplayTitle';
+
+interface Props {
+  featuredProjects: Project[];
+  currentIndex: number;
+}
+
+const { featuredProjects, currentIndex } = Astro.props;
+---
+
+<div class="title">
+  <div class="main-title">
+
+    {featuredProjects.map((item, index) => (
+      <div
+        class={`title-slide js-featured-project js-featured-title ${index === currentIndex ? 'is-active' : ''}`}
+        data-featured-slug={item.slug}
+      >
+        <h1 class="featured-title">
+          <TitleLines lines={getDisplayTitle(item)} />
+        </h1>
+
+        <h2 class="featured-subtitle">{item.subtitle}</h2>
+      </div>
+    ))}
+
+  </div>
+</div>

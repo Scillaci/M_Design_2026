@@ -1,8 +1,29 @@
+
 [
+  {
+    "label": "thumbs",
+    "projects": [
+      "follow-the-steps",
+      "megablockbuster",
+      "die-besten-filme-aller-zeiten",
+      "wildones"
+    ]
+  },
 
-  "follow-the-steps",
-  "megablockbuster",
-  "die-besten-filme-aller-zeiten",
-  "wildones"
+  {
+    "label": "featured",
+    "projects": [
+        "showreel-2017",  
+        "follow-the-steps",
+        "megablockbuster"
+    ]
+  },
 
+  {
+    "label": "alwaysFeatured",
+    "projects": [
+        "showreel-2017"
+    ]
+  }
 ]
+

@@ -1,13 +1,26 @@
 import orderJson from '../data/order/projects-order.json';
-import featuredOrderJson from '../data/order/featured-order.json';
 import type { Project } from '../utils/types';
 
-const order = orderJson as string[];
-const featuredOrder = featuredOrderJson as string[];
+type ProjectOrderGroup = {
+  label: string;
+  projects: string[];
+};
+
+const orderGroups = orderJson as ProjectOrderGroup[];
+
+const thumbsOrder =
+  orderGroups.find((group) => group.label === 'thumbs')?.projects ?? [];
+
+const featuredOrder =
+  orderGroups.find((group) => group.label === 'featured')?.projects ?? [];
+
+const alwaysFeaturedOrder =
+  orderGroups.find((group) => group.label === 'alwaysFeatured')?.projects ?? [];
 
 export function getProjects(): {
   projects: Project[];
   featuredProjects: Project[];
+  alwaysFeaturedProjects: Project[];
 } {
   const projectModules = import.meta.glob('../data/projects/*.json', { eager: true });
 
@@ -16,16 +29,21 @@ export function getProjects(): {
     return project;
   });
 
-  const projects: Project[] = order
-    .map((slug: string) => allProjects.find((p) => p.slug === slug))
+  const projects: Project[] = thumbsOrder
+    .map((slug) => allProjects.find((p) => p.slug === slug))
     .filter((p): p is Project => Boolean(p));
 
   const featuredProjects: Project[] = featuredOrder
-    .map((slug: string) => allProjects.find((p) => p.slug === slug))
+    .map((slug) => allProjects.find((p) => p.slug === slug))
+    .filter((p): p is Project => Boolean(p));
+
+  const alwaysFeaturedProjects: Project[] = alwaysFeaturedOrder
+    .map((slug) => allProjects.find((p) => p.slug === slug))
     .filter((p): p is Project => Boolean(p));
 
   return {
     projects,
-    featuredProjects
+    featuredProjects,
+    alwaysFeaturedProjects
   };
 }

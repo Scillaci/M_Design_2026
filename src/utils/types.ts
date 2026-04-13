@@ -1,3 +1,4 @@
+
 export interface Collaborator {
   title: string;
   name: string;
@@ -10,7 +11,9 @@ export interface Project {
   subtitle?: string;
   client?: string;
   year?: string;
-  tags?: string[];
+  category?: string[];
+  headline?: string[];
+  list?: string[];
   poster?: string;
   thumbs?: string[];
   videos?: string[];
@@ -18,3 +21,4 @@ export interface Project {
   role?: string[];
   collaborators?: Collaborator[];
 }
+

@@ -1,0 +1,38 @@
+
+[
+{
+  "label": "Mail",
+  "icon": "/icon/at_icon.svg",
+  "href": "mailto:michael.schillack@gmx.de"
+},
+
+{
+  "label": "Vimeo",
+  "icon": "/icon/v_icon.svg",
+  "href": "https://vimeo.com/user3938338"
+},
+
+{
+  "label": "Facebook",
+  "icon": "/icon/f_icon.svg",
+  "href": "https://www.facebook.com/scillaci"
+},
+
+{
+  "label": "LinkedIn",
+  "icon": "/icon/li_icon.svg",
+  "href": "https://www.linkedin.com/in/michael-schillack-929a59a7"
+},
+
+{
+  "label": "Xing",
+  "icon": "/icon/x_icon.svg",
+  "href": "http://www.xing.com/profile/Michael_Schillack"
+},
+
+{
+  "label": "Behance",
+  "icon": "/icon/b_icon.svg",
+  "href": "https://www.behance.net/scillaci"
+}
+]

@@ -7,19 +7,19 @@
     
     "client": "Red Bull TV",
     "year": "2015",
-    "tags": [
-      "formatdesign",
+    "category": [
+      "format design",
       ""
     ],
 
     "overview": [
-      "",
-      ""
+      "Opening sequence for a Red Bull TV documentary series, built from existing footage.",
+      "Animated particle elements react to the athletes’ movement and highlight key moments."
     ],
     
     "role": [
-      "edit",
-      "animation" 
+      "animation",
+      "editing"
     ],
     "collaborators": [
       { "title": "art direction", "name": "Konrad Wielandt" },

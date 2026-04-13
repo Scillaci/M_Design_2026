@@ -7,21 +7,22 @@
 
     "client": "Red Bull TV",
     "year": "2016",
-    "tags": [
-      "formatdesign",
+    "category": [
+      "format design",
       ""
     ],
 
     "overview": [
-      "Opening for a Red Bull TV show featuring projection mapping on live performers.",
-      "Visual patterns were projected directly onto the dancers, enhanced by particle animations designed to follow and amplify their movement."
+      "Opening for a Red Bull TV show using projection mapping directly on live performers.",
+      "The visuals were designed to fit their movement and extended with particle animations."
     ],
     
     "role": [
-      "concept", 
+      "concept",
+      "design",
+      "animation",
       "projection mapping", 
-      "animation", 
-      "edit"
+      "editing"
     ],
     "collaborators": [
       { "title": "direction", "name": "Konrad Wielandt" },

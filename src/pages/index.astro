@@ -4,28 +4,21 @@ import Main from '../components/main.astro';
 
 import { getProjects } from '../utils/getProjects';
 
-const { projects, featuredProjects } = getProjects();
+const { projects, featuredProjects, alwaysFeaturedProjects } = getProjects();
 
 const currentIndex = 0;
-const featuredProject = featuredProjects[currentIndex];
+const featuredProject = featuredProjects[0];
 ---
 
 <BaseLayout title="Portfolio">
-
-  <div
-      id="featured-data"
-      data-projects={JSON.stringify(featuredProjects)}
-      data-current-index={currentIndex}
-      hidden>
-  </div>
 
   <div class="page">
 
       {featuredProject && (
         <Main 
-          project={featuredProject} 
           projects={projects}
           featuredProjects={featuredProjects}
+          alwaysFeaturedProjects={alwaysFeaturedProjects}
           currentIndex={currentIndex}
           />)}
 

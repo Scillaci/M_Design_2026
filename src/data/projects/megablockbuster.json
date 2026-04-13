@@ -7,19 +7,22 @@
 
     "client": "ProSieben",
     "year": "2010",
-    "tags": [
-      "station branding",
+    "category": [
+      "idents & labels",
       ""
     ],
 
     "overview": [
-      "",
-      ""
+      "Program label for ProSieben’s Megablockbuster slot, inspired by The Dark Knight.",
+      "A stylized dark city built around the iconic logo. The sequence moves from close-up details to a wide reveal, with flocks of bats moving through and around it."
     ],
     
     "role": [
       "concept",
-      "3D animation" 
+      "design",
+      "animation",
+      "3D",
+      "compositing"
     ],
     "collaborators": [
       { "title": "", "name": "" }

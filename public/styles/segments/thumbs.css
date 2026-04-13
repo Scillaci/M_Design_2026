@@ -1,0 +1,115 @@
+
+.thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: var(--Space-standard);
+    margin-top: calc(var(--Fontsize-small-2)*1);
+    margin-bottom: calc(var(--Fontsize-small-2)*2);
+    gap: var(--Space-standard);
+}
+
+.thumbs img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-item {
+    position: relative;
+}
+
+.thumb-title {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    font-size: var(--Fontsize-h4);
+    left: calc(var(--Space-standard)*1.5);
+    padding-top: calc(var(--Space-standard) * 0.25);
+    padding-left: calc(var(--Space-standard) * 0.5);
+    padding-right: calc(var(--Space-standard) * 0.5);
+
+    background-color: var(--Background);
+}
+
+.project-item:hover h2 {
+    color: var(--M-color);
+}
+
+.bottom {
+    position: relative;
+    min-height: 200px;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.bottom::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: black;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.bottom ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: var(--Space-standard);
+    z-index: 10;
+}
+
+.bottom a {
+    font-size: var(--Fontsize-small-1);
+    color: var(--M-grey);
+    opacity: 0.5;
+
+    transition: color 0.3s, opacity 0.3s;
+}
+
+.bottom a:hover {
+    color: var(--M-color);
+    opacity: 1;
+}
+
+.bottom-left {
+    text-align: left;
+}
+
+.bottom-right {
+    text-align: right;
+}
+
+@media (min-width: 768px) {
+
+    .thumbs {
+    margin: calc(var(--Fontsize-h1)*0.5);
+    margin-top: calc(var(--Fontsize-small-2)*1);
+    margin-bottom: calc(var(--Fontsize-small-2)*2);
+}
+
+    .bottom ul {
+    margin-left: calc(var(--Fontsize-h1)*0.5);
+    margin-right: calc(var(--Fontsize-h1)*0.5);
+}
+}
+
+@media (min-width: 1024px) {
+
+    .vimeo {
+    margin-bottom: calc(var(--Fontsize-h1)*0.75);
+}
+
+    .thumbs {
+    margin: calc(var(--Fontsize-h1)*0.75);
+    margin-top: 0;
+}
+
+.bottom ul {
+    margin-left: calc(var(--Fontsize-h1)*0.75);
+    margin-right: calc(var(--Fontsize-h1)*0.75);
+}
+}
+

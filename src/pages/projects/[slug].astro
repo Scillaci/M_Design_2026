@@ -3,6 +3,10 @@ import BaseLayout from '../../layouts/base.astro';
 import Vimeo from '../../components/vimeo.astro';
 import Details from '../../components/details.astro';
 import Thumbs from '../../components/thumbs.astro';
+import Bottom from '../../components/bottom.astro';
+import { getDisplayTitle } from '../../utils/getDisplayTitle';
+import TitleLines from '../../components/titleLines.astro';
+
 import { getProjects } from '../../utils/getProjects';
 import type { Project } from '../../utils/types';
 
@@ -22,39 +26,47 @@ const { project } = Astro.props as { project: Project };
 
   <div class="page">
     <div class="title">
-      <div class="title-line-1">
-        <div class="back_icon">
-          <a href="/" title="back">
+
+      <div class="title-row">
+          <a href="/" title="back" class="back-icon">
             <img class="back" src="/icon/arrow_icon.svg" alt="back" />
           </a>
-        </div>
 
-        <div>
-          <h1>
-            {project.thumbTitle && project.thumbTitle.some((line) => line.trim() !== '')
-              ? project.thumbTitle
-                  .filter((line) => line.trim() !== '')
-                  .map((line, i, arr) => (
-                    <>
-                      {line}
-                      {i < arr.length - 1 && <br />}
-                    </>
-                  ))
-              : project.title}
-          </h1>
-          <h2>{project.subtitle}</h2>
-        </div>
+          <div class="title-copy">
+            <h1>
+              <TitleLines lines={getDisplayTitle(project)} />
+            </h1>
+
+            <h2>{project.subtitle}</h2>
+          </div>
       </div>
+
     </div>
+
 
     <div class="grid">
-      <div class="main">
-        <Vimeo project={project} />
-      </div>
+  <div class="main">
+    <Vimeo project={project} />
 
-      <Details project={project} detailsId={`details-${project.slug}`} />
-      <Thumbs thumbs={project.thumbs ?? []} />
-    </div>
+    <Details
+      project={project}
+      blockId="details-unten"
+      panelId={`details-unten-panel-${project.slug}`}
+    />
+
+    <Thumbs thumbs={project.thumbs ?? []} />
+
+    <Bottom />
+  </div>
+
+  <Details
+    project={project}
+    blockId="details-rechts"
+    panelId={`details-rechts-panel-${project.slug}`}
+  />
+</div>
+
+    
   </div>
   
 </BaseLayout>

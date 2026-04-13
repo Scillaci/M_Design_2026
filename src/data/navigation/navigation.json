@@ -1,0 +1,23 @@
+{
+  "about": [
+    {
+      "label": "About",
+      "href": "/about.html"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact.html"
+    }
+  ],
+  
+  "legal": [
+    {
+      "label": "Impressum",
+      "href": "/impressum.html"
+    },
+    {
+      "label": "Datenschutz",
+      "href": "/privacy.html"
+    }
+  ]
+}
