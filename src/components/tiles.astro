@@ -12,6 +12,7 @@ const { projects } = Astro.props as Props;
 ---
 
 <div class="thumbs">
+
   {projects.map((project) => (
     <article 
       class="project-item js-project"
@@ -25,11 +26,12 @@ const { projects } = Astro.props as Props;
           loading="lazy" 
         />
 
-        <h2 class="thumb-title">
+        <h3 class="thumb-title">
           <TitleLines lines={getDisplayTitle(project)} />
-        </h2>
+        </h3>
 
       </a>
     </article>
   ))}
+  
 </div>

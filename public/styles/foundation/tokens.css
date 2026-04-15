@@ -1,0 +1,68 @@
+:root {
+  /* Colors */
+  --color-bg: #141b1e;
+  --color-text: #808080;
+  --color-accent-1: #1584d4;
+  --color-accent-1-bright: #4aabff;
+  --color-accent-2: #18ad43;
+  --color-accent-2-bright: #38dd67;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Spacing */
+  --space-standard: 8px;
+
+  /* Typography */
+  --font-family-base: 'Open Sans', sans-serif;
+
+  --fontsize-h1: 32px;
+  --fontsize-h2: 18px;
+  --fontsize-h3: 16px;
+
+  --fontsize-small: 14px;
+
+  /* Layout */
+  --header-height: calc(var(--fontsize-h1) * 1.33);
+  --page-max-width: 768px;
+
+  /* Buttons */
+  --nav-button-size: calc(var(--fontsize-h1) * 1.5);
+  --back-icon-size: calc(var(--fontsize-h1) * 0.75);
+  --details-arrow-size: calc(var(--fontsize-small) * 0.75);
+ 
+  /* Motion */
+  --transition-standard: 0.3s ease;
+
+  /* Z-index */
+  --z-main: 10;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-nav: 300;
+
+  /* Opacity */
+  --opacity-low: 0.25;
+  --opacity-medium: 0.5;
+  --opacity-high: 0.75;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --space-standard: 10px;
+
+    --fontsize-h1: 40px;
+    --fontsize-h2: 21px;
+    --fontsize-h3: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --space-standard: 12px;
+
+    --fontsize-h1: 48px;
+    --fontsize-h2: 24px;
+    --fontsize-h3: 20px;
+
+    --page-max-width: 1280px;
+  }
+}

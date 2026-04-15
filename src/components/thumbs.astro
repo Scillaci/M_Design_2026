@@ -9,7 +9,7 @@ const { thumbs = [] } = Astro.props;
 <div class="thumbs">
 
   {thumbs.map((image: string) => (
-    <img 
+    <img class="project-item"
       src={image} 
       alt="" 
       loading="lazy" 

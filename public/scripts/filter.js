@@ -53,7 +53,7 @@ function getActiveFilters(group) {
   return Array.from(filterButtons)
     .filter((button) =>
       button.dataset.filterGroup === group &&
-      button.classList.contains('active')
+      button.classList.contains('is-active')
     )
     .map((button) => button.dataset.filterValue)
     .filter(Boolean);
@@ -91,7 +91,7 @@ function restoreFilters() {
       (group === 'category' && savedCategories.includes(value)) ||
       (group === 'expertise' && savedExpertise.includes(value));
 
-    button.classList.toggle('active', isActive);
+    button.classList.toggle('is-active', isActive);
   });
 }
 
@@ -258,7 +258,7 @@ function updateFilters() {
 
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    button.classList.toggle('active');
+    button.classList.toggle('is-active');
     updateFilters();
   });
 });

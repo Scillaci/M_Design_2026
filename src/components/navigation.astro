@@ -29,15 +29,13 @@ const expertise = filter.find(group => group.label === "expertise");
 	<div class="menu-scroll">
 
 		<div class="nav-top">
-
 			<ul>
         		{nav.about.map((item) => (
         		<li>
-            		<a href={item.href}>{item.label}</a>
+            		<a class="nav-link-top" href={item.href}>{item.label}</a>
         		</li>
         		))}
     		</ul>
-
 		</div>
 
 		<div class="menu-line">
@@ -45,13 +43,10 @@ const expertise = filter.find(group => group.label === "expertise");
 		</div>
 
 		<div id="nav-category" class="nav-filter">
-
-			<h3 class="filter-label">{category?.label}</h3>
-
+			<h5 class="filter-label">{category?.label}</h5>
 			<ul >{category?.filter.map((item) => (
-        		
 				<li>
-            		<button class="js-toggle-filter"
+            		<button class="nav-button-category js-toggle-filter"
         					type="button"
 							data-filter-group="category"
           					data-filter-value={item.id}
@@ -61,17 +56,15 @@ const expertise = filter.find(group => group.label === "expertise");
         		</li>
         	))}
     		</ul>
-
 		</div>
 
 		<div id="nav-expertise" class="nav-filter">
 
-				<h4 class="filter-label">{expertise?.label}</h4>
+				<h5 class="filter-label">{expertise?.label}</h5>
 
 				<ul >{expertise?.filter.map((item) => (
-        		
 					<li>
-            			<button class="js-toggle-filter"
+            			<button class="nav-button-expertise js-toggle-filter"
         						type="button"
 								data-filter-group="expertise"
           						data-filter-value={item.id}
@@ -81,7 +74,6 @@ const expertise = filter.find(group => group.label === "expertise");
         			</li>
         		))}
     			</ul>
-
 		</div>
 
 		<div class="menu-line">
@@ -93,7 +85,7 @@ const expertise = filter.find(group => group.label === "expertise");
 			<ul>
         		{nav.legal.map((item) => (
         		<li>
-            		<a href={item.href}>{item.label}</a>
+            		<a class="nav-link-bottom" href={item.href}>{item.label}</a>
         		</li>
         		))}
     		</ul>
@@ -109,10 +101,5 @@ const expertise = filter.find(group => group.label === "expertise");
     		</ul>
 
 		</div>
-
 	</div>
 </div>
-
-<!-- 
-
--->

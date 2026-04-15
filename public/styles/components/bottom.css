@@ -1,0 +1,49 @@
+.bottom {
+  position: relative;
+  min-height: 200px;
+  margin-top: calc(var(--space-standard)*0);
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.bottom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-black);
+  opacity: var(--opacity-low);
+  pointer-events: none;
+}
+
+.bottom ul {
+  position: relative;
+  margin: var(--space-standard);
+  z-index: 1;
+}
+
+.bottom h5 {
+  margin-bottom: calc(var(--space-standard) / 2);
+  opacity: var(--opacity-medium);
+}
+
+.bottom a:hover h5 {
+  color: var(--color-accent-1);
+  opacity: 1;
+}
+⁄
+.bottom-left {
+  text-align: left;
+}
+
+.bottom-right {
+  text-align: right;
+}
+
+@media (min-width: 1024px) {
+
+.bottom {
+  margin-top: calc(var(--space-standard)*1);
+}
+}

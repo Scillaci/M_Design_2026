@@ -50,8 +50,8 @@ const { project } = Astro.props as { project: Project };
 
     <Details
       project={project}
-      blockId="details-unten"
-      panelId={`details-unten-panel-${project.slug}`}
+      blockId="details-inline"
+      panelId={`details-inline-panel-${project.slug}`}
     />
 
     <Thumbs thumbs={project.thumbs ?? []} />
@@ -61,12 +61,11 @@ const { project } = Astro.props as { project: Project };
 
   <Details
     project={project}
-    blockId="details-rechts"
-    panelId={`details-rechts-panel-${project.slug}`}
+    blockId="details-sidebar"
+    panelId={`details-sidebar-panel-${project.slug}`}
   />
 </div>
 
-    
   </div>
   
 </BaseLayout>

@@ -29,13 +29,15 @@ const arrowId = `${panelId}-arrow`;
 ---
 
 <div id={blockId} class="case">
+
   <div class="case-overview case-overview-desktop">
   {overview.map((text) => (
     <p class="overview">{text}</p>
   ))}
-</div>
+  </div>
 
   <div class="details-toggle">
+  
     <button
       class="details-button js-toggle"
       type="button"
@@ -43,16 +45,20 @@ const arrowId = `${panelId}-arrow`;
       aria-controls={panelId}
       data-toggle={`#${arrowId}, #${panelId}`}
     >
+
       <span id={arrowId} class="details-arrow">
         <img src="/icon/arrow_icon.svg" alt="" />
       </span>
 
-      <h3 class="details-label">Details</h3>
+      <h4 class="details-label">Details</h4>
+
     </button>
+
   </div>
 
   <div id={panelId} class="details-panel">
     <div class="details-panel-inner">
+      
       <div class="case-overview case-overview-mobile">
         {overview.map((text) => (
         <p class="overview">{text}</p>
@@ -76,7 +82,10 @@ const arrowId = `${panelId}-arrow`;
             <p>{row.value}</p>
           </div>
         ))}
+
       </div>
+
     </div>
   </div>
+
 </div>

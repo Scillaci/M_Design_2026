@@ -1,0 +1,103 @@
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.vimeo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: calc(var(--fontsize-small) * 0.5);
+  overflow: hidden;
+}
+
+.featured-vimeo {
+  position: relative;
+}
+
+.slide,
+.title-slide,
+.details-slide {
+  display: none;
+}
+
+.slide.is-active,
+.title-slide.is-active,
+.details-slide.is-active {
+  display: block;
+}
+
+.poster,
+.vimeo-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.poster {
+  display: block;
+  opacity: 1;
+  transition: opacity var(--transition-standard);
+}
+
+.poster.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vimeo-embed {
+  opacity: 0;
+  transition: opacity var(--transition-standard);
+}
+
+.vimeo-embed.is-loaded {
+  opacity: 1;
+}
+
+.left,
+.right {
+  width: 100%;
+  opacity: var(--opacity-low);
+  transition: opacity var(--transition-standard);
+}
+
+.left {
+  transform: rotate(180deg);
+}
+
+.button-left:hover .left,
+.button-right:hover .right {
+  opacity: var(--opacity-medium);
+}
+
+.button-left,
+.button-right {
+  position: absolute;
+  top: 50%;
+  width: calc(var(--back-icon-size) * 1.66);
+  transform: translateY(-66%);
+  z-index: var(--z-main);
+  cursor: pointer;
+}
+
+.button-left {
+  left: calc(var(--fontsize-h1) * 0.33);
+}
+
+.button-right {
+  right: calc(var(--fontsize-h1) * 0.33);
+}
+
+.button-left img,
+.button-right img {
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+
+  .vimeo {
+    margin-bottom: var(--space-standard);
+  }
+}

@@ -11,20 +11,22 @@ const { featuredProjects, currentIndex } = Astro.props as Props;
 ---
 
 <div class="featured-vimeo">
-  <button title="left" class="button-left js-index" data-step="-1">
-    <img class="left" src="/icon/arrow_icon.svg" alt="left" />
-  </button>
-
-  <button title="right" class="button-right js-index" data-step="1">
-    <img class="right" src="/icon/arrow_icon.svg" alt="right" />
-  </button>
-
+  
   {featuredProjects.map((item, index) => (
     <div
       class={`slide js-featured-project js-featured-media ${index === currentIndex ? 'is-active' : ''}`}
       data-featured-slug={item.slug}
     >
+      <button title="left" class="button-left js-index" data-step="-1">
+        <img class="left" src="/icon/arrow_icon.svg" alt="left" />
+      </button>
+      
+      <button title="right" class="button-right js-index" data-step="1">
+        <img class="right" src="/icon/arrow_icon.svg" alt="right" />
+      </button>
+
       <Vimeo project={item} />
     </div>
   ))}
+
 </div>

@@ -1,0 +1,30 @@
+header {
+  min-height: var(--header-height);
+}
+
+.logo_div {
+  position: fixed;
+  inset-inline: 0;
+  width: fit-content;
+  margin: 0 auto;
+  z-index: var(--z-header);
+}
+
+.logo {
+  height: var(--back-icon-size);
+  margin-top: calc(var(--space-standard) * 1.33);
+  transition: transform var(--transition-standard);
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+body.scrolled .logo {
+  transform: scale(0.6);
+  margin-top: calc(var(--space-standard) * 0.5);
+}
+
+body.scrolled .logo:hover {
+  transform: scale(0.66);
+}

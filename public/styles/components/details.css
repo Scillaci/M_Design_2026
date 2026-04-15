@@ -1,0 +1,126 @@
+#details-inline,
+.case-overview-mobile {
+  display: block;
+}
+
+#details-sidebar,
+.case-overview-desktop {
+  display: none;
+}
+
+#details-sidebar {
+  display: none;
+  margin-left: var(--space-standard);
+  align-self: start;
+  position: sticky;
+  top: calc(var(--fontsize-h1) * 3.33);
+}
+
+.case {
+  max-width: 75vw;
+}
+
+.details-toggle {
+  margin-top: calc(var(--space-standard) * 0.5);
+  margin-bottom: calc(var(--space-standard) * 0.5);
+}
+
+.details-button {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--fontsize-small) * 0.25);
+  margin-left: var(--space-standard);
+  text-align: left;
+}
+
+.details-arrow {
+  width: var(--details-arrow-size);
+  flex-shrink: 0;
+  opacity: var(--opacity-high);
+  transform: translateY(calc(var(--fontsize-small) * 0.133)) rotate(0deg);
+  transition:
+    transform var(--transition-standard),
+    opacity var(--transition-standard);
+}
+
+.details-arrow img {
+  width: 100%;
+  height: auto;
+}
+
+.details-arrow.is-active {
+  transform: translateY(calc(var(--fontsize-small) * 0.133)) rotate(90deg);
+}
+
+.details-button:hover h4 {
+  color: var(--color-accent-1);
+}
+
+.details-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-left: calc(var(--space-standard) + var(--details-arrow-size) + (var(--fontsize-small) * 0.25));
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    grid-template-rows var(--transition-standard),
+    opacity var(--transition-standard);
+}
+
+.details-panel.is-active {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.details-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.list > *:not(:last-child) {
+  margin: 0;
+}
+
+.headline, .details-row h4 {
+  opacity: var(--opacity-low);
+  margin-bottom: calc(var(--fontsize-small) * 0.1);
+}
+
+@media (min-width: 768px) {
+
+  .case {
+    max-width: 50vw;
+  }
+
+  .details-toggle {
+    margin-top: calc(var(--space-standard) * 0.5);
+    margin-bottom: calc(var(--space-standard) * 0.25);
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  #details-sidebar,
+  .case-overview-desktop {
+    display: block;
+  }
+
+  #details-inline,
+  .case-overview-mobile {
+    display: none;
+  }
+
+ .details-toggle {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .details-button {
+    margin-left: 0;
+  }
+
+  .details-panel {
+    margin-left: calc(var(--details-arrow-size) + (var(--fontsize-small) * 0.25));
+}
+}

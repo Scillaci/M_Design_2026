@@ -7,7 +7,7 @@ import nav from '../data/navigation/navigation.json';
     <ul class="bottom-left">
         {nav.about.map((item) => (
         <li>
-            <a href={item.href}>{item.label}</a>
+            <a href={item.href}><h5>{item.label}</h5></a>
         </li>
         ))}
     </ul>
@@ -15,7 +15,7 @@ import nav from '../data/navigation/navigation.json';
     <ul class="bottom-right">
         {nav.legal.map((item) => (
         <li>
-            <a href={item.href}>{item.label}</a>
+            <a href={item.href}><h5>{item.label}</h5></a>
         </li>
         ))}
     </ul>

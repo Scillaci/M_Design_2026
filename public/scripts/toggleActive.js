@@ -23,7 +23,7 @@ document.querySelectorAll(".js-toggle").forEach(trigger => {
       }
 
       elements.forEach(el => {
-        el.classList.toggle("active");
+        el.classList.toggle("is-active");
       });
     });
   });
